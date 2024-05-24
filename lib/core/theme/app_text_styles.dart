@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:idear/core/theme/app_colos.dart';
+import 'package:idear/core/theme/app_colors.dart';
 
 class AppTextStyles {
   static const heading02 = TextStyle(
