@@ -1,36 +1,34 @@
 import 'package:flutter/material.dart';
-import 'package:idear/app/view/widgets/radio_button/widget_radio_button.dart';
 import 'package:idear/core/theme/app_colos.dart';
 import 'package:idear/core/theme/app_text_styles.dart';
 
-class RadioPoliteButton extends RadioButton {
+class RadioPoliteButton extends Radio {
   const RadioPoliteButton({
     super.key,
-    required super.text,
-    required super.isSelected,
-    required super.onTap,
+    required super.value,
+    required super.groupValue,
+    required super.onChanged,
   });
 
-  @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: onTap,
+      onTap: () => onChanged,
       borderRadius: const BorderRadius.all(Radius.circular(8.0)),
       child: Ink(
           decoration: BoxDecoration(
               borderRadius: const BorderRadius.all(Radius.circular(8.0)),
-              color: isSelected == true
+              color: value == groupValue
                   ? AppColors.colorMain
                   : AppColors.colorWhite,
-              border: isSelected == true
+              border: value == groupValue
                   ? Border.all(width: 1, color: AppColors.colorMain)
                   : Border.all(width: 1, color: AppColors.colorGray500)),
           padding: const EdgeInsets.symmetric(vertical: 10),
           child: Center(
             child: Text(
-              text,
+              value,
               style: AppTextStyles.body03.copyWith(
-                color: isSelected == true
+                color: value == groupValue
                     ? AppColors.colorWhite
                     : AppColors.colorGray800,
               ),
