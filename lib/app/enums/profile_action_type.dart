@@ -1,0 +1,1 @@
+enum ProfileActionType { add, modify }

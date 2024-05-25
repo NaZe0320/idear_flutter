@@ -1,8 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:idear/app/enums/polite.dart';
 import 'package:idear/app/view/widgets/radio_button/widget_radio_polite_button.dart';
-import 'package:idear/app/view/widgets/widget_spacing.dart';
 
 class RadioPoliteGroup extends StatefulWidget {
   const RadioPoliteGroup({super.key});
@@ -29,7 +29,7 @@ class _RadioPoliteGroupState extends State<RadioPoliteGroup> {
             },
           ),
         ),
-        spaceingHorizontal(12),
+        const SizedBox(width: 12),
         Expanded(
           child: RadioPoliteButton(
             value: Polite.private,
