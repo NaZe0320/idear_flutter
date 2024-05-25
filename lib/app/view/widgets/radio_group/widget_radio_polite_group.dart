@@ -19,15 +19,16 @@ class _RadioPoliteGroupState extends State<RadioPoliteGroup> {
     return Row(
       children: [
         Expanded(
-            child: RadioPoliteButton(
-          value: Polite.public,
-          groupValue: selectValue,
-          onChanged: () {
-            setState(() {
-              selectValue = Polite.public;
-            });
-          },
-        )),
+          child: RadioPoliteButton(
+            value: Polite.public,
+            groupValue: selectValue,
+            onChanged: () {
+              setState(() {
+                selectValue = Polite.public;
+              });
+            },
+          ),
+        ),
         spaceingHorizontal(12),
         Expanded(
           child: RadioPoliteButton(

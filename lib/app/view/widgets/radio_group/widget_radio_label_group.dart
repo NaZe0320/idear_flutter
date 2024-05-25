@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:idear/app/enums/personality.dart';
-import 'package:idear/app/enums/relation.dart';
 import 'package:idear/app/view/widgets/radio_button/widget_radio_label_button.dart';
 
 class RadioLabelGroup<T extends Enum> extends StatefulWidget {

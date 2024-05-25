@@ -4,43 +4,63 @@ import 'package:idear/app/enums/private_keyword.dart';
 import 'package:idear/app/enums/public_keyword.dart';
 import 'package:idear/app/enums/relation.dart';
 import 'package:idear/app/view/widgets/radio_group/widget_radio_label_group.dart';
-import 'package:idear/app/view/widgets/radio_group/widget_radio_polite_group.dart';
-import 'package:idear/app/view/widgets/widget_button.dart';
-import 'package:idear/app/view/widgets/radio_button/widget_radio_label_button.dart';
-import 'package:idear/app/view/widgets/radio_button/widget_radio_polite_button.dart';
+import 'package:idear/app/view/widgets/radio_group/widget_radio_mbti_group.dart';
+import 'package:idear/app/view/widgets/widget_spacing.dart';
 
 class ScreenProfileSetting extends StatelessWidget {
   const ScreenProfileSetting({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: [
-        SizedBox(
+        const SizedBox(
           height: 30,
         ),
-        RadioLabelGroup<Personality>(
+        const RadioLabelGroup<Personality>(
           enumValues: Personality.values,
         ),
-        SizedBox(
+        const SizedBox(
           height: 30,
         ),
-        RadioLabelGroup<PrivateKeyword>(
+        const RadioLabelGroup<PrivateKeyword>(
           enumValues: PrivateKeyword.values,
         ),
-        SizedBox(
+        const SizedBox(
           height: 30,
         ),
-        RadioLabelGroup<PublicKeyword>(
+        const RadioLabelGroup<PublicKeyword>(
           enumValues: PublicKeyword.values,
         ),
-        SizedBox(
+        const SizedBox(
           height: 30,
         ),
-        RadioLabelGroup<Relation>(
+        const RadioLabelGroup<Relation>(
           enumValues: Relation.values,
           padding: 18,
         ),
+        const SizedBox(
+          height: 30,
+        ),
+        Row(
+          children: [
+            const RadioMbtiGroup(
+              enumValues: ['E', 'I'],
+            ),
+            spaceingHorizontal(8),
+            const RadioMbtiGroup(
+              enumValues: ['N', 'S'],
+            ),
+            spaceingHorizontal(8),
+            const RadioMbtiGroup(
+              enumValues: ['F', 'T'],
+            ),
+            spaceingHorizontal(8),
+            const RadioMbtiGroup(
+              enumValues: ['P', 'J'],
+            ),
+          ],
+        )
       ],
     );
   }
