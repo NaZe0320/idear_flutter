@@ -5,6 +5,8 @@ import 'package:idear/app/view/widgets/widget_tool_bar.dart';
 import 'package:idear/core/theme/app_colors.dart';
 import 'package:idear/core/theme/app_text_styles.dart';
 
+import '../widgets/widget_profile_list.dart';
+
 class ScreenProfileList extends StatelessWidget {
   const ScreenProfileList({super.key});
 
@@ -13,7 +15,7 @@ class ScreenProfileList extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.only(top: 16, left: 16, right: 16),
           child: Column(
             children: [
               Toolbar(
@@ -40,22 +42,8 @@ class ScreenProfileList extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 12),
-              const Expanded(
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      ButtonProfile(),
-                      SizedBox(height: 8),
-                      ButtonProfile(),
-                      SizedBox(height: 8),
-                      ButtonProfile(),
-                      SizedBox(height: 8),
-                      ButtonProfileAdd()
-                    ],
-                  ),
-                ),
-              ),
+              const SizedBox(height: 4),
+              const ListProfile(),
             ],
           ),
         ),
