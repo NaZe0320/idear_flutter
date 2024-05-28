@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:idear/core/theme/app_colors.dart';
 
 class ScreenPostCreate extends StatelessWidget {
   const ScreenPostCreate({super.key});

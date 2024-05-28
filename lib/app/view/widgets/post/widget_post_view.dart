@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import 'widget_info_post.dart';
+import 'widget_post_info.dart';
 
-class Write extends StatelessWidget {
-  const Write({super.key});
+class PostView extends StatelessWidget {
+  const PostView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class Write extends StatelessWidget {
               height: 36,
             ),
             const SizedBox(height: 8),
-            const WriteInfo(),
+            const PostInfo(),
             const SizedBox(height: 16),
             Container()
           ],

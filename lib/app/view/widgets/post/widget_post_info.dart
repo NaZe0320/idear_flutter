@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:idear/core/theme/app_colors.dart';
 import 'package:idear/core/theme/app_text_styles.dart';
 
-class WriteInfo extends StatelessWidget {
-  const WriteInfo({
+class PostInfo extends StatelessWidget {
+  const PostInfo({
     super.key,
   });
 
