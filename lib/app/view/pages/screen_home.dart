@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:idear/app/view/pages/profile/screen_profile_list.dart';
 import 'package:idear/app/view/pages/wrtie/screen_post_create.dart';
+import 'package:idear/app/viewmodel/viewmodel_post.dart';
+import 'package:idear/app/viewmodel/viewmodel_proflie.dart';
+import 'package:provider/provider.dart';
 
 class ScreenHome extends StatelessWidget {
   const ScreenHome({super.key});

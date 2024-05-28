@@ -1,25 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:idear/app/model/model_profile.dart';
 import 'package:idear/app/view/pages/profile/screen_profile_setting.dart';
+import 'package:idear/app/viewmodel/viewmodel_post_create.dart';
+import 'package:idear/app/viewmodel/viewmodel_proflie.dart';
 import 'package:idear/core/theme/app_colors.dart';
 import 'package:idear/core/theme/app_text_styles.dart';
+import 'package:provider/provider.dart';
 
 class ButtonProfile extends StatelessWidget {
-  const ButtonProfile({super.key, this.isEdit = true, this.isSelected = false});
+  const ButtonProfile(
+      {super.key,
+      required this.profile,
+      this.isEdit = true,
+      this.postCreateViewModel});
 
+  final Profile profile;
   final bool isEdit;
-  final bool isSelected;
+  final ViewModelPostCreate? postCreateViewModel;
+
   @override
   Widget build(BuildContext context) {
+    final profileViewModel =
+        Provider.of<ViewModelProfile>(context, listen: true);
     return Column(
       children: [
         Material(
           child: GestureDetector(
             onTap: () {},
             child: Container(
-              padding: EdgeInsets.all(isSelected ? 11.5 : 12),
+              padding: EdgeInsets.all(
+                  postCreateViewModel?.selectedProfile?.id == profile.id
+                      ? 11.5
+                      : 12),
               decoration: BoxDecoration(
-                  border: isSelected
+                  border: postCreateViewModel?.selectedProfile?.id == profile.id
                       ? Border.all(color: AppColors.colorMain, width: 1.5)
                       : Border.all(color: AppColors.colorGray200, width: 1),
                   borderRadius: const BorderRadius.all(Radius.circular(8))),
@@ -30,13 +45,13 @@ class ButtonProfile extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       SvgPicture.asset(
-                        'images/profiles/profile01.svg',
+                        'images/profiles/profile${profile.imageId.toString().padLeft(2, '0')}.svg',
                         width: 48,
                         height: 48,
                       ),
                       const SizedBox(width: 8),
-                      const Text(
-                        '깔끔한 ESTJ (반말)',
+                      Text(
+                        '${profile.personality.text} ESTJ (${profile.polite.text})',
                         style: AppTextStyles.body04,
                       ),
                     ],
@@ -68,7 +83,7 @@ class ButtonProfile extends StatelessWidget {
                                 builder: (context) =>
                                     const ScreenProfileSetting()));
                       } else {
-                        //삭제하기
+                        profileViewModel.deleteProfile(profile.id);
                       }
                     },
                   ),

@@ -7,7 +7,9 @@ import 'package:idear/app/view/widgets/radio_group/widget_radio_group_polite.dar
 import 'package:idear/app/view/widgets/text/widget_text_profile_title.dart';
 import 'package:idear/app/view/widgets/button/widget_button.dart';
 import 'package:idear/app/view/widgets/widget_tool_bar.dart';
+import 'package:idear/app/viewmodel/viewmodel_proflie.dart';
 import 'package:idear/core/theme/app_colors.dart';
+import 'package:provider/provider.dart';
 
 class ScreenProfileSetting extends StatelessWidget {
   const ScreenProfileSetting(
@@ -17,6 +19,9 @@ class ScreenProfileSetting extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final profileViewModel =
+        Provider.of<ViewModelProfile>(context, listen: true);
+
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -101,7 +106,11 @@ class ScreenProfileSetting extends StatelessWidget {
                 text: actionType == ProfileActionType.add ? '추가하기' : '수정하기',
                 isEnable: false,
                 onTap: () async {
-                  if (actionType == ProfileActionType.add) {}
+                  if (actionType == ProfileActionType.add) {
+                    profileViewModel.createProfile();
+                  } else {
+                    profileViewModel.updateProfile();
+                  }
                 },
               )
             ],

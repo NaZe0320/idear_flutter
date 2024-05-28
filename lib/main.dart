@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:idear/app/view/pages/screen_home.dart';
+import 'package:idear/app/viewmodel/viewmodel_post.dart';
+import 'package:idear/app/viewmodel/viewmodel_proflie.dart';
+import 'package:idear/core/theme/app_colors.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MainApp());
@@ -10,10 +15,19 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: ScreenHome(),
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      statusBarColor: AppColors.colorMain,
+    ));
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => ViewModelProfile()),
+        ChangeNotifierProvider(create: (_) => ViewModelPost()),
+      ],
+      child: const MaterialApp(
+        home: Scaffold(
+          body: Center(
+            child: ScreenHome(),
+          ),
         ),
       ),
     );
