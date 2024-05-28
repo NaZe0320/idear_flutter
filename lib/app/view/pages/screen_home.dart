@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:idear/app/view/pages/profile/screen_profile_list.dart';
-import 'package:idear/app/view/pages/wrtie/screen_write.dart';
+import 'package:idear/app/view/pages/wrtie/screen_post_create.dart';
 
 class ScreenHome extends StatelessWidget {
   const ScreenHome({super.key});
@@ -22,8 +22,10 @@ class ScreenHome extends StatelessWidget {
         OutlinedButton(
           child: const Text('글 생성'),
           onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const ScreenWrite()));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const ScreenPostCreate()));
           },
         ),
       ],

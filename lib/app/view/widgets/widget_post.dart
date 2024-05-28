@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:idear/core/theme/app_colors.dart';
-import 'package:idear/core/theme/app_text_styles.dart';
 
-import 'widget_info_write.dart';
+import 'widget_info_post.dart';
 
 class Write extends StatelessWidget {
   const Write({super.key});
