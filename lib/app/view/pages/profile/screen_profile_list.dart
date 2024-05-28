@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:idear/app/view/widgets/button/widget_profile_add_button.dart';
-import 'package:idear/app/view/widgets/button/widget_profile_button.dart';
 import 'package:idear/app/view/widgets/widget_tool_bar.dart';
 import 'package:idear/core/theme/app_colors.dart';
 import 'package:idear/core/theme/app_text_styles.dart';
