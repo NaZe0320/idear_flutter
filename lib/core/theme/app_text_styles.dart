@@ -20,4 +20,7 @@ class AppTextStyles {
 
   static const caption04 = TextStyle(
       fontSize: 12, fontWeight: FontWeight.w500, color: AppColors.colorGray500);
+
+  static const writeTitle = TextStyle(
+      fontSize: 17, fontWeight: FontWeight.w700, color: AppColors.colorGray900);
 }
