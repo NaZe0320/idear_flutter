@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:idear/app/view/pages/screen_profile_list.dart';
+import 'package:idear/app/view/pages/screen_home.dart';
 
 void main() {
   runApp(const MainApp());
@@ -13,7 +13,7 @@ class MainApp extends StatelessWidget {
     return const MaterialApp(
       home: Scaffold(
         body: Center(
-          child: ScreenProfileList(),
+          child: ScreenHome(),
         ),
       ),
     );

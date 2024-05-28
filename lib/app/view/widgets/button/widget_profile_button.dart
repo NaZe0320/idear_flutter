@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:idear/app/view/pages/screen_profile_setting.dart';
+import 'package:idear/app/view/pages/profile/screen_profile_setting.dart';
 import 'package:idear/core/theme/app_colors.dart';
 import 'package:idear/core/theme/app_text_styles.dart';
 
