@@ -3,7 +3,7 @@ import 'package:idear/app/view/widgets/widget_tool_bar.dart';
 import 'package:idear/core/theme/app_colors.dart';
 import 'package:idear/core/theme/app_text_styles.dart';
 
-import '../../widgets/widget_profile_list.dart';
+import '../../widgets/widget_list_profile.dart';
 
 class ScreenProfileList extends StatelessWidget {
   const ScreenProfileList({super.key});

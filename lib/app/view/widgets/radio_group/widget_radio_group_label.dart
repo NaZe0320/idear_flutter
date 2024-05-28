@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:idear/app/view/widgets/radio_button/widget_radio_label_button.dart';
+import 'package:idear/app/view/widgets/radio_button/widget_radio_button_label.dart';
 
 class RadioLabelGroup<T extends Enum> extends StatefulWidget {
   const RadioLabelGroup(

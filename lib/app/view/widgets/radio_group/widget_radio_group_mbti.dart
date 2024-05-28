@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:idear/app/view/widgets/radio_button/widget_radio_mbti_button.dart';
+import 'package:idear/app/view/widgets/radio_button/widget_radio_button_mbti.dart';
 import 'package:idear/core/theme/app_colors.dart';
 
 class RadioMbtiGroup extends StatefulWidget {

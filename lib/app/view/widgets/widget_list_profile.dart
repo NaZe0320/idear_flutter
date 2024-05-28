@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:idear/app/view/widgets/button/widget_profile_add_button.dart';
+import 'package:idear/app/view/widgets/button/widget_profile_button_add.dart';
 import 'package:idear/app/view/widgets/button/widget_profile_button.dart';
 
 class ListProfile extends StatelessWidget {

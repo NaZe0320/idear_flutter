@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:idear/app/enums/polite.dart';
-import 'package:idear/app/view/widgets/radio_button/widget_radio_polite_button.dart';
+import 'package:idear/app/view/widgets/radio_button/widget_radio_button_polite.dart';
 
 class RadioPoliteGroup extends StatefulWidget {
   const RadioPoliteGroup({super.key});

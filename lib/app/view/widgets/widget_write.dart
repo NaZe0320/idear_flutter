@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:idear/core/theme/app_colors.dart';
 import 'package:idear/core/theme/app_text_styles.dart';
 
-import 'widget_write_info.dart';
+import 'widget_info_write.dart';
 
 class Write extends StatelessWidget {
   const Write({super.key});

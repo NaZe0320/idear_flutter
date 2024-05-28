@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:idear/app/enums/personality.dart';
 import 'package:idear/app/enums/profile_action_type.dart';
-import 'package:idear/app/view/widgets/radio_group/widget_radio_label_group.dart';
-import 'package:idear/app/view/widgets/radio_group/widget_radio_mbti_group.dart';
-import 'package:idear/app/view/widgets/radio_group/widget_radio_polite_group.dart';
-import 'package:idear/app/view/widgets/text/widget_profile_title_text.dart';
+import 'package:idear/app/view/widgets/radio_group/widget_radio_group_label.dart';
+import 'package:idear/app/view/widgets/radio_group/widget_radio_group_mbti.dart';
+import 'package:idear/app/view/widgets/radio_group/widget_radio_group_polite.dart';
+import 'package:idear/app/view/widgets/text/widget_text_profile_title.dart';
 import 'package:idear/app/view/widgets/button/widget_button.dart';
 import 'package:idear/app/view/widgets/widget_tool_bar.dart';
 import 'package:idear/core/theme/app_colors.dart';
