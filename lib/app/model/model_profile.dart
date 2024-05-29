@@ -14,4 +14,12 @@ class Profile {
       required this.personality,
       required this.polite,
       required this.mbti});
+
+  Profile.copy(Profile from)
+      : this(
+            id: from.id,
+            imageId: from.imageId,
+            personality: from.personality,
+            polite: from.polite,
+            mbti: from.mbti);
 }

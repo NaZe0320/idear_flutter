@@ -57,7 +57,7 @@ class ViewModelProfile with ChangeNotifier {
   void selectProfile(int id) async {
     if (_profileList != null) {
       _selectedProfile =
-          _profileList!.firstWhere((profile) => profile.id == id);
+          Profile.copy(_profileList!.firstWhere((profile) => profile.id == id));
     }
   }
 
