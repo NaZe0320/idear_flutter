@@ -38,36 +38,6 @@ class MockProfile {
           personality: Personality.sophisticated,
           polite: Polite.private,
           mbti: ['E', 'N', 'F', 'J']),
-      Profile(
-          id: 1,
-          imageId: 1,
-          personality: Personality.cute,
-          polite: Polite.private,
-          mbti: ['I', 'S', 'T', 'J']),
-      Profile(
-          id: 2,
-          imageId: 15,
-          personality: Personality.friendly,
-          polite: Polite.public,
-          mbti: ['E', 'N', 'F', 'P']),
-      Profile(
-          id: 3,
-          imageId: 4,
-          personality: Personality.neat,
-          polite: Polite.public,
-          mbti: ['I', 'S', 'T', 'J']),
-      Profile(
-          id: 4,
-          imageId: 12,
-          personality: Personality.coldHearted,
-          polite: Polite.private,
-          mbti: ['E', 'S', 'T', 'P']),
-      Profile(
-          id: 5,
-          imageId: 7,
-          personality: Personality.sophisticated,
-          polite: Polite.private,
-          mbti: ['E', 'N', 'F', 'J']),
     ];
     return list;
   }
@@ -79,6 +49,7 @@ class MockProfile {
   }
 
   Future<List<Profile>> updateProfile(Profile newProfile) async {
+    print("여기 와?");
     list[list.indexWhere((profile) => profile.id == newProfile.id)] =
         newProfile;
     return list;

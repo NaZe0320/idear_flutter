@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:idear/app/enums/profile_action_type.dart';
 import 'package:idear/app/model/model_profile.dart';
 import 'package:idear/app/view/pages/profile/screen_profile_setting.dart';
 import 'package:idear/app/viewmodel/viewmodel_post_create.dart';
@@ -51,7 +52,7 @@ class ButtonProfile extends StatelessWidget {
                       ),
                       const SizedBox(width: 8),
                       Text(
-                        '${profile.personality.text} ${profile.mbti.join('')} (${profile.polite.text})',
+                        '${profile.personality?.text} ${profile.mbti.join('')} (${profile.polite?.text})',
                         style: AppTextStyles.body04,
                       ),
                     ],
@@ -82,7 +83,9 @@ class ButtonProfile extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                                 builder: (context) =>
-                                    const ScreenProfileSetting()));
+                                    const ScreenProfileSetting(
+                                      actionType: ProfileActionType.modify,
+                                    )));
                       } else {
                         profileViewModel.deleteProfile(profile.id);
                       }

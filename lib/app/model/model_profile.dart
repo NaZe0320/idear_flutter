@@ -3,10 +3,10 @@ import 'package:idear/app/enums/polite.dart';
 
 class Profile {
   final int id;
-  int imageId;
-  Personality personality;
-  Polite polite;
-  List<String?> mbti;
+  int imageId = 1;
+  Personality? personality;
+  Polite? polite;
+  List<String?> mbti = [null, null, null, null];
 
   Profile(
       {required this.id,

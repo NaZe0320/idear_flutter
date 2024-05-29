@@ -142,12 +142,18 @@ class ScreenProfileSetting extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               child: ButtonDefault(
                 text: actionType == ProfileActionType.add ? '추가하기' : '수정하기',
-                isEnable: false,
+                isEnable:
+                    profileViewModel.selectedProfile?.personality != null &&
+                        profileViewModel.selectedProfile?.polite != null &&
+                        profileViewModel.selectedProfile?.mbti.contains(null) ==
+                            false,
                 onTap: () async {
                   if (actionType == ProfileActionType.add) {
                     profileViewModel.createProfile();
+                    Navigator.pop(context);
                   } else {
                     profileViewModel.updateProfile();
+                    Navigator.pop(context);
                   }
                 },
               ),

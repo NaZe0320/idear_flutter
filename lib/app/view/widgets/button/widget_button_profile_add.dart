@@ -1,14 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:idear/app/view/pages/profile/screen_profile_setting.dart';
+import 'package:idear/app/viewmodel/viewmodel_proflie.dart';
 import 'package:idear/core/theme/app_colors.dart';
+import 'package:provider/provider.dart';
 
 class ButtonProfileAdd extends StatelessWidget {
   const ButtonProfileAdd({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final profileViewModel =
+        Provider.of<ViewModelProfile>(context, listen: false);
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        profileViewModel.newProfile();
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => const ScreenProfileSetting()));
+      },
       borderRadius: const BorderRadius.all(Radius.circular(8)),
       child: Ink(
         decoration: BoxDecoration(

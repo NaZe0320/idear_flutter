@@ -42,6 +42,7 @@ class ViewModelProfile with ChangeNotifier {
   //Profile 삭제
   void deleteProfile(int id) async {
     _profileList = await mock.deleteProfile(id);
+
     notifyListeners();
   }
 
@@ -58,6 +59,17 @@ class ViewModelProfile with ChangeNotifier {
     if (_profileList != null) {
       _selectedProfile =
           Profile.copy(_profileList!.firstWhere((profile) => profile.id == id));
+    }
+  }
+
+  void newProfile() async {
+    if (_profileList != null) {
+      _selectedProfile = Profile(
+          id: 0,
+          imageId: 4,
+          personality: null,
+          polite: null,
+          mbti: [null, null, null, null]);
     }
   }
 
