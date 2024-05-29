@@ -6,7 +6,7 @@ class Profile {
   int imageId;
   Personality personality;
   Polite polite;
-  List<bool?> mbti;
+  List<String?> mbti;
 
   Profile(
       {required this.id,

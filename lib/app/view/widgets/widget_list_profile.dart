@@ -17,7 +17,7 @@ class ListProfile extends StatelessWidget {
 
     return Expanded(
       child: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(vertical: 8),
+        padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
         child: Column(
           children: [
             ListView.builder(

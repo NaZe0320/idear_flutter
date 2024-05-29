@@ -51,7 +51,7 @@ class ButtonProfile extends StatelessWidget {
                       ),
                       const SizedBox(width: 8),
                       Text(
-                        '${profile.personality.text} ESTJ (${profile.polite.text})',
+                        '${profile.personality.text} ${profile.mbti.join('')} (${profile.polite.text})',
                         style: AppTextStyles.body04,
                       ),
                     ],

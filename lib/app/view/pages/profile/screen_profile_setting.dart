@@ -81,28 +81,56 @@ class ScreenProfileSetting extends StatelessWidget {
                       color: AppColors.colorGray400,
                       thickness: 1.0,
                     ),
-                    const Padding(
-                      padding: EdgeInsets.all(16.0),
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          TextProfileTitle(
+                          const TextProfileTitle(
                               title: 'MBTI 설정하기',
                               description: '나의 가상 프로필 MBTI 를 지정해보세요.'),
-                          SizedBox(height: 12),
+                          const SizedBox(height: 12),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              RadioMbtiGroup(enumValues: ['E', 'I']),
-                              SizedBox(width: 12),
-                              RadioMbtiGroup(enumValues: ['N', 'S']),
-                              SizedBox(width: 12),
-                              RadioMbtiGroup(enumValues: ['F', 'T']),
-                              SizedBox(width: 12),
-                              RadioMbtiGroup(enumValues: ['P', 'J']),
+                              RadioMbtiGroup(
+                                enumValues: const ['E', 'I'],
+                                selectValue:
+                                    profileViewModel.selectedProfile?.mbti[0],
+                                onChanged: (value) => profileViewModel
+                                    .updateProfileMBTI(value, 0),
+                                index: 0,
+                              ),
+                              const SizedBox(width: 12),
+                              RadioMbtiGroup(
+                                enumValues: const ['N', 'S'],
+                                selectValue:
+                                    profileViewModel.selectedProfile?.mbti[1],
+                                onChanged: (value) => profileViewModel
+                                    .updateProfileMBTI(value, 1),
+                                index: 1,
+                              ),
+                              const SizedBox(width: 12),
+                              RadioMbtiGroup(
+                                enumValues: const ['F', 'T'],
+                                selectValue:
+                                    profileViewModel.selectedProfile?.mbti[2],
+                                onChanged: (value) => profileViewModel
+                                    .updateProfileMBTI(value, 2),
+                                index: 2,
+                              ),
+                              const SizedBox(width: 12),
+                              RadioMbtiGroup(
+                                enumValues: const ['P', 'J'],
+                                selectValue:
+                                    profileViewModel.selectedProfile?.mbti[3],
+                                onChanged: (value) => profileViewModel
+                                    .updateProfileMBTI(value, 3),
+                                index: 3,
+                              ),
                             ],
                           ),
-                          SizedBox(height: 12),
+                          const SizedBox(height: 12),
                         ],
                       ),
                     ),

@@ -72,9 +72,9 @@ class ViewModelProfile with ChangeNotifier {
     notifyListeners();
   }
 
-  void updateProfileMBTI() {
+  void updateProfileMBTI(String newValue, int index) {
     if (_selectedProfile != null) {
-      _selectedProfile!.mbti;
+      _selectedProfile!.mbti[index] = newValue;
     }
     notifyListeners();
   }

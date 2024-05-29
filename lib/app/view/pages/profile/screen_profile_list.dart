@@ -17,19 +17,19 @@ class ScreenProfileList extends StatelessWidget {
 
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.only(top: 16, left: 16, right: 16),
-          child: Column(
-            children: [
-              Toolbar(
-                title: '마이페이지',
-                icon: "trash",
-                onTap: () {
-                  profileViewModel.setEditable();
-                },
-              ),
-              const SizedBox(height: 16),
-              Row(
+        child: Column(
+          children: [
+            Toolbar(
+              title: '마이페이지',
+              icon: "trash",
+              onTap: () {
+                profileViewModel.setEditable();
+              },
+            ),
+            const SizedBox(height: 16),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Row(
                 children: [
                   const Text(
                     '프로필',
@@ -47,10 +47,10 @@ class ScreenProfileList extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 4),
-              const ListProfile(),
-            ],
-          ),
+            ),
+            const SizedBox(height: 4),
+            const ListProfile(),
+          ],
         ),
       ),
     );
