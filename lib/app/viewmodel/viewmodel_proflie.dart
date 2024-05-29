@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:idear/app/enums/personality.dart';
 import 'package:idear/app/enums/polite.dart';
@@ -66,7 +68,7 @@ class ViewModelProfile with ChangeNotifier {
     if (_profileList != null) {
       _selectedProfile = Profile(
           id: 0,
-          imageId: 4,
+          imageId: Random().nextInt(15) + 1,
           personality: null,
           polite: null,
           mbti: [null, null, null, null]);
