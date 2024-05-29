@@ -157,7 +157,7 @@ class ScreenProfileSetting extends StatelessWidget {
                   }
                 },
               ),
-            )
+            ),
           ],
         ),
       ),

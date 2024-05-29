@@ -20,7 +20,8 @@ class IndicatorPost extends StatelessWidget {
               ? AppColors.colorMainExtraLight
               : index == _currentPage
                   ? AppColors.colorMain
-                  : AppColors.colorGray200),
+                  : AppColors.colorGray200,
+          borderRadius: const BorderRadius.all(Radius.circular(7))),
     );
   }
 }
