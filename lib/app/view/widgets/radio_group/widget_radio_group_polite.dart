@@ -4,15 +4,12 @@ import 'package:flutter/widgets.dart';
 import 'package:idear/app/enums/polite.dart';
 import 'package:idear/app/view/widgets/radio_button/widget_radio_button_polite.dart';
 
-class RadioPoliteGroup extends StatefulWidget {
-  const RadioPoliteGroup({super.key});
+class RadioPoliteGroup extends StatelessWidget {
+  const RadioPoliteGroup(
+      {super.key, required this.selectValue, required this.onChanged});
 
-  @override
-  State<RadioPoliteGroup> createState() => _RadioPoliteGroupState();
-}
-
-class _RadioPoliteGroupState extends State<RadioPoliteGroup> {
-  Polite? selectValue;
+  final Polite? selectValue;
+  final ValueChanged onChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -23,9 +20,7 @@ class _RadioPoliteGroupState extends State<RadioPoliteGroup> {
             value: Polite.public,
             groupValue: selectValue,
             onChanged: () {
-              setState(() {
-                selectValue = Polite.public;
-              });
+              onChanged(Polite.public);
             },
           ),
         ),
@@ -35,9 +30,7 @@ class _RadioPoliteGroupState extends State<RadioPoliteGroup> {
             value: Polite.private,
             groupValue: selectValue,
             onChanged: () {
-              setState(() {
-                selectValue = Polite.private;
-              });
+              onChanged(Polite.private);
             },
           ),
         ),

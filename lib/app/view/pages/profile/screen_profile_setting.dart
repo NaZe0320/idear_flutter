@@ -59,17 +59,21 @@ class ScreenProfileSetting extends StatelessWidget {
                       color: AppColors.colorGray400,
                       thickness: 1.0,
                     ),
-                    const Padding(
-                      padding: EdgeInsets.all(16.0),
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          TextProfileTitle(
+                          const TextProfileTitle(
                               title: '높임말 선택하기',
                               description: '내 프로필은 친근한 반말인가요? 공손한 존댓말인가요?'),
-                          SizedBox(height: 12),
-                          RadioPoliteGroup(),
-                          SizedBox(height: 12),
+                          const SizedBox(height: 12),
+                          RadioPoliteGroup(
+                              selectValue:
+                                  profileViewModel.selectedProfile?.polite,
+                              onChanged: (value) =>
+                                  profileViewModel.updateProfileValue(value)),
+                          const SizedBox(height: 12),
                         ],
                       ),
                     ),
