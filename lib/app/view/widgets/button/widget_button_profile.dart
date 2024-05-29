@@ -77,6 +77,7 @@ class ButtonProfile extends StatelessWidget {
                     ),
                     onTap: () {
                       if (isEdit) {
+                        profileViewModel.selectProfile(profile.id);
                         Navigator.push(
                             context,
                             MaterialPageRoute(

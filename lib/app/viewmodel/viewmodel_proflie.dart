@@ -68,7 +68,14 @@ class ViewModelProfile with ChangeNotifier {
       } else if (newValue is Polite) {
         _selectedProfile!.polite = newValue;
       }
-      notifyListeners();
     }
+    notifyListeners();
+  }
+
+  void updateProfileMBTI() {
+    if (_selectedProfile != null) {
+      _selectedProfile!.mbti;
+    }
+    notifyListeners();
   }
 }
