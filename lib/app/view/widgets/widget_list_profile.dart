@@ -31,7 +31,9 @@ class ListProfile extends StatelessWidget {
                     postCreateViewModel: postCreateViewModel,
                   );
                 }),
-            const ButtonProfileAdd(),
+            (profileViewModel.profileList?.length ?? 0) < 10
+                ? const ButtonProfileAdd()
+                : Container(),
           ],
         ),
       ),
