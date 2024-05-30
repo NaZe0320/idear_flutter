@@ -29,7 +29,7 @@ class _ScreenPostCreateState extends State<ScreenPostCreate> {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<ViewModelPostCreate>(
+    return ChangeNotifierProvider(
       create: (context) => ViewModelPostCreate(),
       child: Scaffold(
         body: SafeArea(
@@ -85,20 +85,22 @@ class _ScreenPostCreateState extends State<ScreenPostCreate> {
                       ),
                     ),
                     Expanded(
-                      child: PageView(
-                        controller: _controller,
-                        physics: const NeverScrollableScrollPhysics(),
-                        onPageChanged: (int page) {
-                          setState(() {
-                            viewModel.changeCurrentPage(page);
-                          });
-                        },
-                        children: const <Widget>[
-                          ScreenPostCreateFirst(),
-                          ScreenPostCreateSecond(),
-                          ScreenPostCreateThird(),
-                          ScreenPostCreateFourth()
-                        ],
+                      child: Material(
+                        child: PageView(
+                          controller: _controller,
+                          physics: const NeverScrollableScrollPhysics(),
+                          onPageChanged: (int page) {
+                            setState(() {
+                              viewModel.changeCurrentPage(page);
+                            });
+                          },
+                          children: const <Widget>[
+                            ScreenPostCreateFirst(),
+                            ScreenPostCreateSecond(),
+                            ScreenPostCreateThird(),
+                            ScreenPostCreateFourth()
+                          ],
+                        ),
                       ),
                     ),
                     if (viewModel.currentPage != 3)

@@ -7,28 +7,34 @@ class ScreenHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        OutlinedButton(
-          child: const Text('프로필'),
-          onPressed: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const ScreenProfileList()));
-          },
+    return MaterialApp(
+      home: Scaffold(
+        body: SafeArea(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              OutlinedButton(
+                child: const Text('프로필'),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ScreenProfileList()));
+                },
+              ),
+              OutlinedButton(
+                child: const Text('글 생성'),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ScreenPostCreate()));
+                },
+              ),
+            ],
+          ),
         ),
-        OutlinedButton(
-          child: const Text('글 생성'),
-          onPressed: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const ScreenPostCreate()));
-          },
-        ),
-      ],
+      ),
     );
   }
 }

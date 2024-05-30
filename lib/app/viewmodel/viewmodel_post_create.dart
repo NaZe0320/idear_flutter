@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:idear/app/enums/polite.dart';
+import 'package:idear/app/enums/relation.dart';
+import 'package:idear/app/model/model_post_bundle.dart';
 import 'package:idear/app/model/model_profile.dart';
 
 class ViewModelPostCreate with ChangeNotifier {
@@ -8,8 +11,11 @@ class ViewModelPostCreate with ChangeNotifier {
   int _currentPage = 0;
   int get currentPage => _currentPage;
 
-  bool _isCompletePage = true;
+  bool _isCompletePage = false;
   bool get isCompletePage => _isCompletePage;
+
+  final PostBundle _postBundle = PostBundle.create(id: null);
+  PostBundle get postBundle => _postBundle;
 
   void changeCurrentPage(int i) {
     _currentPage = i;
@@ -17,6 +23,21 @@ class ViewModelPostCreate with ChangeNotifier {
   }
 
   void checkIsCompletePage() {
-    _isCompletePage = true;
+    if (currentPage == 0) {
+      _isCompletePage =
+          (postBundle.relation != null && postBundle.situation != null);
+    } else {
+      _isCompletePage = false;
+    }
+  }
+
+  void setPostBundle<T>(T newValue) {
+    if (newValue is Relation) {
+      postBundle.relation = newValue;
+    } else if (newValue is Polite) {
+      _selectedProfile!.polite = newValue;
+    }
+    checkIsCompletePage();
+    notifyListeners();
   }
 }
