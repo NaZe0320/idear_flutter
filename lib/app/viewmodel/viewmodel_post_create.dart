@@ -33,6 +33,8 @@ class ViewModelPostCreate with ChangeNotifier {
               postBundle.situation == Situation.private) ||
           (postBundle.publicKeyword != null &&
               postBundle.situation == Situation.public);
+    } else if (currentPage == 2) {
+      _isCompletePage = postBundle.profile != null;
     } else {
       _isCompletePage = false;
     }
@@ -49,6 +51,8 @@ class ViewModelPostCreate with ChangeNotifier {
       _postBundle.privateKeyword = newValue;
     } else if (newValue is PublicKeyword) {
       _postBundle.publicKeyword = newValue;
+    } else if (newValue is Profile) {
+      _postBundle.profile = newValue;
     }
     checkIsCompletePage();
     notifyListeners();

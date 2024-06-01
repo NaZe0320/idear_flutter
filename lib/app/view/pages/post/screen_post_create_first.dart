@@ -43,7 +43,7 @@ class ScreenPostCreateFirst extends StatelessWidget {
             const SizedBox(height: 12),
             RadioLabelGroup<Relation>(
                 enumValues: Relation.values,
-                padding: 20,
+                padding: 18,
                 selectValue: viewModel.postBundle.relation,
                 onChanged: (value) {
                   viewModel.setPostBundle<Relation>(value);

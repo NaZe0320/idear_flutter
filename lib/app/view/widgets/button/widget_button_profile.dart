@@ -27,16 +27,19 @@ class ButtonProfile extends StatelessWidget {
     return Column(
       children: [
         GestureDetector(
-          onTap: () {},
+          onTap: () {
+            postCreateViewModel?.setPostBundle(profile);
+          },
           child: Container(
             padding: EdgeInsets.all(
                 postCreateViewModel?.selectedProfile?.id == profile.id
                     ? 11.5
                     : 12),
             decoration: BoxDecoration(
-                border: postCreateViewModel?.selectedProfile?.id == profile.id
-                    ? Border.all(color: AppColors.colorMain, width: 1.5)
-                    : Border.all(color: AppColors.colorGray200, width: 1),
+                border:
+                    postCreateViewModel?.postBundle.profile?.id == profile.id
+                        ? Border.all(color: AppColors.colorMain, width: 1.5)
+                        : Border.all(color: AppColors.colorGray200, width: 1),
                 borderRadius: const BorderRadius.all(Radius.circular(8))),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -56,38 +59,41 @@ class ButtonProfile extends StatelessWidget {
                     ),
                   ],
                 ),
-                InkWell(
-                  borderRadius: const BorderRadius.all(Radius.circular(8)),
-                  child: Ink(
-                    decoration: const BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(8)),
-                        color: AppColors.colorMain),
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-                    child: Center(
-                      child: Text(
-                        isEdit ? '수정하기' : '삭제하기',
-                        style: const TextStyle(
-                          fontSize: 13,
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white,
+                Material(
+                  child: InkWell(
+                    borderRadius: const BorderRadius.all(Radius.circular(8)),
+                    child: Ink(
+                      decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(8)),
+                          color: AppColors.colorMain),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 8),
+                      child: Center(
+                        child: Text(
+                          isEdit ? '수정하기' : '삭제하기',
+                          style: const TextStyle(
+                            fontSize: 13,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                     ),
+                    onTap: () {
+                      if (isEdit) {
+                        profileViewModel.selectProfile(profile.id);
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const ScreenProfileSetting(
+                                      actionType: ProfileActionType.modify,
+                                    )));
+                      } else {
+                        profileViewModel.deleteProfile(profile.id);
+                      }
+                    },
                   ),
-                  onTap: () {
-                    if (isEdit) {
-                      profileViewModel.selectProfile(profile.id);
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const ScreenProfileSetting(
-                                    actionType: ProfileActionType.modify,
-                                  )));
-                    } else {
-                      profileViewModel.deleteProfile(profile.id);
-                    }
-                  },
                 ),
               ],
             ),

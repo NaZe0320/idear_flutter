@@ -92,6 +92,7 @@ class _ScreenPostCreateState extends State<ScreenPostCreate> {
                           onPageChanged: (int page) {
                             setState(() {
                               viewModel.changeCurrentPage(page);
+                              viewModel.checkIsCompletePage();
                             });
                           },
                           children: const <Widget>[
