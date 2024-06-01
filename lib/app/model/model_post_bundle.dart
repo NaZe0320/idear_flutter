@@ -1,3 +1,5 @@
+import 'package:idear/app/enums/private_keyword.dart';
+import 'package:idear/app/enums/public_keyword.dart';
 import 'package:idear/app/enums/relation.dart';
 import 'package:idear/app/enums/situation.dart';
 import 'package:idear/app/model/model_post.dart';
@@ -7,7 +9,8 @@ class PostBundle {
   final int? id;
   Situation? situation;
   Relation? relation;
-  KeywordType? keyword;
+  PrivateKeyword? privateKeyword;
+  PublicKeyword? publicKeyword;
   String? additional;
   Profile? profile;
   String? createAt;
@@ -18,9 +21,4 @@ class PostBundle {
   PostBundle.create({
     this.id,
   });
-}
-
-enum KeywordType {
-  privateKeyword,
-  publicKeyword,
 }
