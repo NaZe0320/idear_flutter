@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:idear/app/enums/polite.dart';
 import 'package:idear/app/enums/relation.dart';
+import 'package:idear/app/enums/situation.dart';
 import 'package:idear/app/model/model_post_bundle.dart';
 import 'package:idear/app/model/model_profile.dart';
 
@@ -34,8 +35,8 @@ class ViewModelPostCreate with ChangeNotifier {
   void setPostBundle<T>(T newValue) {
     if (newValue is Relation) {
       postBundle.relation = newValue;
-    } else if (newValue is Polite) {
-      _selectedProfile!.polite = newValue;
+    } else if (newValue is Situation) {
+      postBundle.situation = newValue;
     }
     checkIsCompletePage();
     notifyListeners();

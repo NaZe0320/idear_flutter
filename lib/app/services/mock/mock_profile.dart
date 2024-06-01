@@ -49,7 +49,6 @@ class MockProfile {
   }
 
   Future<List<Profile>> updateProfile(Profile newProfile) async {
-    print("여기 와?");
     list[list.indexWhere((profile) => profile.id == newProfile.id)] =
         newProfile;
     return list;
