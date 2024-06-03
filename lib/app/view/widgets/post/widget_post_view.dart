@@ -6,7 +6,9 @@ import 'package:idear/core/theme/app_text_styles.dart';
 import 'widget_post_info.dart';
 
 class PostView extends StatelessWidget {
-  const PostView({super.key});
+  const PostView({super.key, required this.index});
+
+  final int index;
 
   @override
   Widget build(BuildContext context) {
