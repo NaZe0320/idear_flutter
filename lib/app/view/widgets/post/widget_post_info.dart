@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:idear/app/model/model_post_bundle.dart';
 import 'package:idear/core/theme/app_colors.dart';
 import 'package:idear/core/theme/app_text_styles.dart';
 
 class PostInfo extends StatelessWidget {
   const PostInfo({
     super.key,
+    required this.postBundle,
   });
+
+  final PostBundle postBundle;
 
   @override
   Widget build(BuildContext context) {
@@ -21,11 +25,14 @@ class PostInfo extends StatelessWidget {
             Text('[',
                 style: AppTextStyles.writeTitle
                     .copyWith(color: AppColors.colorMain)),
-            const Text('친구', style: AppTextStyles.writeTitle),
+            Text('${postBundle.relation?.text}',
+                style: AppTextStyles.writeTitle),
             Text(']',
                 style: AppTextStyles.writeTitle
                     .copyWith(color: AppColors.colorMain)),
-            const Text('에게 전하는 생일축하', style: AppTextStyles.writeTitle),
+            Text(
+                '에게 전하는 ${postBundle.privateKeyword?.text ?? postBundle.publicKeyword?.text}',
+                style: AppTextStyles.writeTitle),
           ],
         )
       ],

@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:idear/app/model/model_post.dart';
+import 'package:idear/app/model/model_post_bundle.dart';
 import 'package:idear/core/theme/app_colors.dart';
 import 'package:idear/core/theme/app_text_styles.dart';
 
 import 'widget_post_info.dart';
 
 class PostView extends StatelessWidget {
-  const PostView({super.key, required this.index});
+  const PostView({super.key, required this.postBundle, this.post});
 
-  final int index;
+  final PostBundle postBundle;
+  final Post? post;
 
   @override
   Widget build(BuildContext context) {
@@ -17,12 +20,14 @@ class PostView extends StatelessWidget {
         Row(
           children: [
             SvgPicture.asset(
-              'images/profiles/profile12.svg',
+              'images/profiles/profile${postBundle.profile?.imageId.toString().padLeft(2, '0') ?? 01}.svg',
               width: 36,
               height: 36,
             ),
             const SizedBox(width: 8),
-            const PostInfo(),
+            PostInfo(
+              postBundle: postBundle,
+            ),
           ],
         ),
         const SizedBox(height: 16),
@@ -35,14 +40,14 @@ class PostView extends StatelessWidget {
           height: 358,
           child: Column(
             children: [
-              const SizedBox(
+              SizedBox(
                 height: 280,
                 child: SingleChildScrollView(
                   child: Row(
                     children: [
                       Expanded(
                           child: Text(
-                        'data',
+                        post?.content ?? "?",
                         style: AppTextStyles.body04,
                       )),
                     ],

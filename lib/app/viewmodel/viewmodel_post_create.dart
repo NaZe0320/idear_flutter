@@ -3,6 +3,7 @@ import 'package:idear/app/enums/private_keyword.dart';
 import 'package:idear/app/enums/public_keyword.dart';
 import 'package:idear/app/enums/relation.dart';
 import 'package:idear/app/enums/situation.dart';
+import 'package:idear/app/model/model_post.dart';
 import 'package:idear/app/model/model_post_bundle.dart';
 import 'package:idear/app/model/model_profile.dart';
 
@@ -21,6 +22,28 @@ class ViewModelPostCreate with ChangeNotifier {
 
   void changeCurrentPage(int i) {
     _currentPage = i;
+    notifyListeners();
+  }
+
+  void createPost() async {
+    _postBundle.posts = [
+      Post(
+          id: null,
+          content:
+              "상황 : ${postBundle.situation?.text} \n관계 : ${postBundle.relation?.text} \n키워드 : ${postBundle.publicKeyword?.text ?? postBundle.privateKeyword?.text}\n정보 입력 : ${postBundle.additional} \n 프로필 : ${postBundle.profile?.mbti}, ${postBundle.profile?.personality?.text}, ${postBundle.profile?.polite?.text}",
+          favorite: false,
+          request: null)
+    ];
+    notifyListeners();
+  }
+
+  void reCreatePost() async {
+    _postBundle.posts?.add(Post(
+        id: null,
+        content:
+            "상황 : ${postBundle.situation?.text} \n관계 : ${postBundle.relation?.text} \n키워드 : ${postBundle.publicKeyword?.text ?? postBundle.privateKeyword?.text}\n정보 입력 : ${postBundle.additional} \n프로필 : ${postBundle.profile?.mbti}, ${postBundle.profile?.personality?.text}, ${postBundle.profile?.polite?.text}\n재요청 : ${postBundle.posts?[(postBundle.posts?.length ?? 1) - 1]?.request}",
+        favorite: false,
+        request: null));
     notifyListeners();
   }
 
@@ -60,5 +83,9 @@ class ViewModelPostCreate with ChangeNotifier {
 
   void setPostBundleAdditional(String text) {
     _postBundle.additional = text;
+  }
+
+  void setPostRequest(String text) {
+    _postBundle.posts?[(_postBundle.posts?.length ?? 1) - 1]?.request = text;
   }
 }

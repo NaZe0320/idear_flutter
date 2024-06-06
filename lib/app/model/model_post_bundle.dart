@@ -14,7 +14,7 @@ class PostBundle {
   String? additional;
   Profile? profile;
   String? createAt;
-  List<Post>? posts;
+  List<Post?>? posts;
 
   PostBundle({this.id, this.profile, this.createAt, this.posts});
 

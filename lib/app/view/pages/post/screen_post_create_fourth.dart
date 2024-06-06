@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:idear/app/view/widgets/post/widget_post_info.dart';
 import 'package:idear/app/view/widgets/post/widget_post_view.dart';
 import 'package:idear/app/viewmodel/viewmodel_post_create.dart';
 import 'package:idear/core/theme/app_colors.dart';
@@ -30,13 +28,19 @@ class ScreenPostCreateFourth extends StatelessWidget {
                         height: 417,
                         child: PageView.custom(
                           controller: PageController(viewportFraction: 0.9),
-                          childrenDelegate:
-                              SliverChildBuilderDelegate((context, index) {
-                            return const Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 8),
-                              child: PostView(index: 0),
+                          childrenDelegate: SliverChildBuilderDelegate(
+                              (context, index) {
+                            return Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 8),
+                              child: PostView(
+                                postBundle: viewModel.postBundle,
+                                post: viewModel.postBundle.posts![index],
+                              ),
                             );
-                          }, childCount: 5),
+                          },
+                              childCount:
+                                  viewModel.postBundle.posts?.length ?? 0),
                         ),
                       ),
                     ),
@@ -62,7 +66,9 @@ class ScreenPostCreateFourth extends StatelessWidget {
                                     fontWeight: FontWeight.w600,
                                     fontSize: 14),
                               ),
-                              onTap: () {},
+                              onTap: () {
+                                viewModel.reCreatePost();
+                              },
                             ),
                           ]),
                     ),
@@ -87,7 +93,9 @@ class ScreenPostCreateFourth extends StatelessWidget {
                         hintText: '피드백을 작성해서 글을 수정해주세요.',
                         hintStyle: AppTextStyles.body03
                             .copyWith(color: AppColors.colorGray600)),
-                    onChanged: (value) {},
+                    onChanged: (value) {
+                      viewModel.setPostRequest(value);
+                    },
                   ),
                 ),
                 Positioned(

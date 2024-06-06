@@ -112,6 +112,9 @@ class _ScreenPostCreateState extends State<ScreenPostCreate> {
                           isEnable: viewModel.isCompletePage,
                           onTap: () {
                             FocusScope.of(context).unfocus();
+                            if (viewModel.currentPage == 2) {
+                              viewModel.createPost();
+                            }
                             _controller.nextPage(
                                 duration: const Duration(milliseconds: 500),
                                 curve: Curves.easeInOut);
