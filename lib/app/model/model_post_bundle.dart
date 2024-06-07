@@ -16,7 +16,16 @@ class PostBundle {
   String? createAt;
   List<Post?>? posts;
 
-  PostBundle({this.id, this.profile, this.createAt, this.posts});
+  PostBundle(
+      {this.id,
+      this.situation,
+      this.relation,
+      this.privateKeyword,
+      this.publicKeyword,
+      this.additional,
+      this.profile,
+      this.createAt,
+      this.posts});
 
   PostBundle.create({
     this.id,

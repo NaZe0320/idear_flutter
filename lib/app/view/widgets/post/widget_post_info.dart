@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:idear/app/model/model_post_bundle.dart';
 import 'package:idear/core/theme/app_colors.dart';
 import 'package:idear/core/theme/app_text_styles.dart';
@@ -13,28 +14,38 @@ class PostInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+    return Row(
       children: [
-        const Text(
-          '2024.06.11',
-          style: AppTextStyles.caption04,
+        SvgPicture.asset(
+          'images/profiles/profile${postBundle.profile?.imageId.toString().padLeft(2, '0') ?? 01}.svg',
+          width: 36,
+          height: 36,
         ),
-        Row(
+        const SizedBox(width: 8),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('[',
-                style: AppTextStyles.writeTitle
-                    .copyWith(color: AppColors.colorMain)),
-            Text('${postBundle.relation?.text}',
-                style: AppTextStyles.writeTitle),
-            Text(']',
-                style: AppTextStyles.writeTitle
-                    .copyWith(color: AppColors.colorMain)),
             Text(
-                '에게 전하는 ${postBundle.privateKeyword?.text ?? postBundle.publicKeyword?.text}',
-                style: AppTextStyles.writeTitle),
+              postBundle.createAt ?? '?',
+              style: AppTextStyles.caption04,
+            ),
+            Row(
+              children: [
+                Text('[',
+                    style: AppTextStyles.writeTitle
+                        .copyWith(color: AppColors.colorMain)),
+                Text('${postBundle.relation?.text}',
+                    style: AppTextStyles.writeTitle),
+                Text(']',
+                    style: AppTextStyles.writeTitle
+                        .copyWith(color: AppColors.colorMain)),
+                Text(
+                    '에게 전하는 ${postBundle.privateKeyword?.text ?? postBundle.publicKeyword?.text}',
+                    style: AppTextStyles.writeTitle),
+              ],
+            )
           ],
-        )
+        ),
       ],
     );
   }

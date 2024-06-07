@@ -13,7 +13,7 @@ class ScreenPostCreateFourth extends StatelessWidget {
   Widget build(BuildContext context) {
     final viewModel = Provider.of<ViewModelPostCreate>(context, listen: true);
     return Container(
-      color: AppColors.colorGray300,
+      color: AppColors.colorBackground,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

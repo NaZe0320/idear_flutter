@@ -17,18 +17,8 @@ class PostView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          children: [
-            SvgPicture.asset(
-              'images/profiles/profile${postBundle.profile?.imageId.toString().padLeft(2, '0') ?? 01}.svg',
-              width: 36,
-              height: 36,
-            ),
-            const SizedBox(width: 8),
-            PostInfo(
-              postBundle: postBundle,
-            ),
-          ],
+        PostInfo(
+          postBundle: postBundle,
         ),
         const SizedBox(height: 16),
         Container(

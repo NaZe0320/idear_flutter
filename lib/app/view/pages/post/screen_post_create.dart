@@ -38,7 +38,7 @@ class _ScreenPostCreateState extends State<ScreenPostCreate> {
               return Container(
                 decoration: BoxDecoration(
                     color: viewModel.currentPage == 3
-                        ? AppColors.colorGray100
+                        ? AppColors.colorBackground
                         : AppColors.colorWhite),
                 child: Column(
                   children: [
