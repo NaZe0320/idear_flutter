@@ -63,9 +63,12 @@ class ButtonProfile extends StatelessWidget {
                   child: InkWell(
                     borderRadius: const BorderRadius.all(Radius.circular(8)),
                     child: Ink(
-                      decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(8)),
-                          color: AppColors.colorMain),
+                      decoration: BoxDecoration(
+                          borderRadius:
+                              const BorderRadius.all(Radius.circular(8)),
+                          color: isEdit
+                              ? AppColors.colorMain
+                              : const Color(0xFFA70B0F)),
                       padding: const EdgeInsets.symmetric(
                           horizontal: 10, vertical: 8),
                       child: Center(
