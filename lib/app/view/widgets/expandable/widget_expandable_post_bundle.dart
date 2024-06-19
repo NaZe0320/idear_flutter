@@ -9,7 +9,12 @@ import 'package:provider/provider.dart';
 import 'widget_expandable_post_view_select.dart';
 
 class ExpandablePostBundle extends StatefulWidget {
-  const ExpandablePostBundle({super.key});
+  const ExpandablePostBundle({
+    super.key,
+    required this.index,
+  });
+
+  final int index;
 
   @override
   State<ExpandablePostBundle> createState() => _ExpandablePostBundleState();
@@ -32,7 +37,7 @@ class _ExpandablePostBundleState extends State<ExpandablePostBundle> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              PostInfo(postBundle: viewModel.postBundle.first),
+              PostInfo(postBundle: viewModel.postBundle[widget.index]),
               InkWell(
                   onTap: () {
                     setState(() {
@@ -54,15 +59,24 @@ class _ExpandablePostBundleState extends State<ExpandablePostBundle> {
                   ),
                   padding:
                       const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
-                  child: const ExpandablePostViewSelect(),
+                  child: ExpandablePostViewSelect(
+                      post: viewModel.postBundle[widget.index].posts?.first),
                 ),
                 ListView.builder(
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
-                    itemCount: 4,
+                    itemCount:
+                        (viewModel.postBundle[widget.index].posts?.length ??
+                                1) -
+                            1,
                     itemBuilder: (context, index) {
-                      return const Column(
-                        children: [SizedBox(height: 8), ExpandablePostView()],
+                      return Column(
+                        children: [
+                          const SizedBox(height: 8),
+                          ExpandablePostView(
+                              post: viewModel
+                                  .postBundle[widget.index].posts?[index + 1])
+                        ],
                       );
                     })
               ],

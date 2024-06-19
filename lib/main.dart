@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:idear/app/view/pages/screen_home.dart';
 import 'package:idear/app/viewmodel/viewmodel_post.dart';
-import 'package:idear/app/viewmodel/viewmodel_post_create.dart';
 import 'package:idear/app/viewmodel/viewmodel_proflie.dart';
 import 'package:idear/core/theme/app_colors.dart';
 import 'package:provider/provider.dart';
@@ -23,7 +22,6 @@ class MainApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => ViewModelProfile()),
         ChangeNotifierProvider(create: (_) => ViewModelPost()),
-        ChangeNotifierProvider(create: (_) => ViewModelPostCreate()),
       ],
       child: MaterialApp(
         theme: ThemeData(scaffoldBackgroundColor: AppColors.colorWhite),

@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:idear/app/model/model_post.dart';
 import 'package:idear/core/theme/app_colors.dart';
 import 'package:idear/core/theme/app_text_styles.dart';
 
 class ExpandablePostView extends StatelessWidget {
-  const ExpandablePostView({super.key});
+  const ExpandablePostView({super.key, required this.post});
+
+  final Post? post;
 
   @override
   Widget build(BuildContext context) {
@@ -18,12 +21,13 @@ class ExpandablePostView extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Expanded(
+          Expanded(
             child: Text(
-              '너는 내게 있어서 특별한 존재야. 우리가 함께 ...',
+              post?.content ?? '내용이 없습니다.',
               style: AppTextStyles.body04,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
+              textAlign: TextAlign.start,
             ),
           ),
           SvgPicture.asset('images/ic_arrow_right.svg', height: 20, width: 20),
